@@ -1,16 +1,16 @@
+import { useEffect, useState } from "react";
 import { useSendPasswordResetEmail } from "react-firebase-hooks/auth";
-import { set, useForm } from "react-hook-form";
+import { useForm } from "react-hook-form";
+import { ImSpinner } from "react-icons/im";
 import { Link, useNavigate } from "react-router-dom";
 import { auth } from "../config/firebase";
-import { useEffect, useState } from "react";
-import { ImSpinner } from "react-icons/im";
 
 type FormData = {
   email: string;
 };
 
 export const ForgotPassword = () => {
-  const [sendPasswordResetEmail, sending, error] =
+  const [sendPasswordResetEmail,, error] =
     useSendPasswordResetEmail(auth);
   const navigate = useNavigate();
   const [isLoading, setIsLoading] = useState(false)
